@@ -32,7 +32,6 @@ public class UserInputs {
                     return Optional.of(mode);
                 }
             }
-
             return Optional.empty();
         }
     }

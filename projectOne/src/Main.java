@@ -26,44 +26,36 @@ void main(String[] args) {
             System.out.println("Simple dilution selected.");
 
             String questionOne = readln("Initial Concentration (M): ");
-            double iConcentration = Double.parseDouble(questionOne);
-
-            if (!simpleDilution.isValidIConcentration(iConcentration)) {
-                IO.println("Invalid Initial Concentration");
-                return;
-            }
-
-            simpleDilution.setIConcentration(iConcentration);
-
             String questionTwo = readln("Initial Volume (mL): ");
-            double iVolume = Double.parseDouble(questionTwo);
-
-            if (!simpleDilution.isValidIVolume(iVolume)) {
-                IO.println("Invalid Initial Volume");
-                return;
-            }
-
-            simpleDilution.setIVolume(iVolume);
-
             String questionThree = readln("Final Volume (mL): ");
-            double fVolume = Double.parseDouble(questionThree);
 
-            if (!simpleDilution.isValidFVolume(iVolume)) {
-                IO.println("Invalid Final Volume");
+            DilutionInputs inputs;
+
+            try {
+                inputs = DilutionInputs.fromStrings(
+                        questionOne,
+                        questionTwo,
+                        questionThree
+                );
+            } catch (IllegalArgumentException exception) {
+                IO.println("Invalid input: " + exception.getMessage());
                 return;
             }
 
-            simpleDilution.setFVolume(fVolume);
-
+            simpleDilution.setIConcentration(inputs.iConcentration());
+            simpleDilution.setIVolume(inputs.iVolume());
+            simpleDilution.setFVolume(inputs.fVolume());
 
             simpleDilution.calculation();
 
-            double finalConcentration = simpleDilution.getFConcentration();
-            IO.println("Final Concentration: " + finalConcentration);
+            IO.println(
+                    "Final Concentration: "
+                            + simpleDilution.getFConcentration()
+                            + " M"
+            );
         }
+            case OPTION_B -> System.out.println("Option B selected.");
+            case OPTION_C -> System.out.println("Option C selected.");
 
-
-        case OPTION_B -> System.out.println("Option B selected.");
-        case OPTION_C -> System.out.println("Option C selected.");
     }
 }

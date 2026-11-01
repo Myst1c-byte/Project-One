@@ -5,6 +5,7 @@ public class siDilution {
     private double fConcentration;
     private double fVolume;
 
+    //getters and setters:
     public double getIConcentration() {
         return iConcentration;
     }
@@ -26,18 +27,6 @@ public class siDilution {
         this.fVolume = fVolume;
     }
 
-    //method for verification of input
-    public boolean isValidIConcentration(double value) {
-        return value > 0;
-    }
-
-    public boolean isValidIVolume(double value) {
-        return value > 0;
-    }
-
-    public boolean isValidFVolume(double value) {
-        return value > 0;
-    }
     //method for calculation
     void calculation() {
         fConcentration = getIConcentration() * getIVolume()/getFVolume();
