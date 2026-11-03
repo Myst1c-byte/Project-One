@@ -1,18 +1,16 @@
+import static java.lang.IO.readln;
+
 public record DilutionInputs(
-        double iConcentration,
-        double iVolume,
-        double fVolume
+         double iConcentration,
+         double iVolume,
+         double fVolume
+
 ) {
     public DilutionInputs {
         requirePositiveFinite(iConcentration, "Initial concentration");
         requirePositiveFinite(iVolume, "Initial volume");
         requirePositiveFinite(fVolume, "Final volume");
 
-        if (fVolume < iVolume) {
-            throw new IllegalArgumentException(
-                    "Final volume cannot be smaller than initial volume."
-            );
-        }
     }
 
     private static void requirePositiveFinite(double value, String name) {

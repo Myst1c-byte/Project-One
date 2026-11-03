@@ -1,4 +1,5 @@
 import java.util.Optional;
+import java.util.Arrays;
 
 import static java.lang.IO.readln;
 
@@ -25,11 +26,15 @@ void main(String[] args) {
         case SIMPLE_DILUTION -> {
             System.out.println("Simple dilution selected.");
 
-            String questionOne = readln("Initial Concentration (M): ");
+            String questionOne = readln("Stock Concentration (M): ");
             String questionTwo = readln("Initial Volume (mL): ");
             String questionThree = readln("Final Volume (mL): ");
 
+            String numberOfDilution = readln("Number of dilutions: ");
+            int numberOfDilutions = Integer.parseInt(numberOfDilution);
+
             DilutionInputs inputs;
+
 
             try {
                 inputs = DilutionInputs.fromStrings(
@@ -46,11 +51,11 @@ void main(String[] args) {
             simpleDilution.setIVolume(inputs.iVolume());
             simpleDilution.setFVolume(inputs.fVolume());
 
-            simpleDilution.calculation();
+            simpleDilution.calculation(numberOfDilutions);
 
             IO.println(
                     "Final Concentration: "
-                            + simpleDilution.getFConcentration()
+                            + Arrays.toString(simpleDilution.getFConcentration())
                             + " M"
             );
         }
