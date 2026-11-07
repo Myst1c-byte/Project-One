@@ -5,10 +5,10 @@ Spend 2 hours a day learning/implementing Java using this project.
 ## Features:
 - **Dilution mode selection:** able to switch between different calculation types.
 - **Input validation:** Prevent crashes and reject invalid entries, such as zero or negative volumes.
-- **Simple Dilution Calculator:** able to calculate a multiple dilutions.
+- **Simple Dilution Calculator:** able to calculate multiple dilutions.
+- **Serial Dilution Calculator:** Calculates serial dilutions and transfer volumes.
 ## Usage:
 Run the program and select a dilution mode when prompted.
 ## Roadmap:
-- Add serial dilution mode.
 - Add compound dilution mode.
 - Add unit conversion.
