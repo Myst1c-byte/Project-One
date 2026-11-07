@@ -5,7 +5,7 @@ public class UserInputs {
 
     public enum ModeSelection {
         SIMPLE_DILUTION('a'),
-        OPTION_B('b'),
+        SERIAL_DILUTION('b'),
         OPTION_C('c');
 
         private final char inputOption;
@@ -35,15 +35,7 @@ public class UserInputs {
             return Optional.empty();
         }
     }
-
     public static Optional<ModeSelection> modeSelector(String input) {
         return ModeSelection.fromInput(input);
     }
-
-
-    
-
-
-
-
 }
